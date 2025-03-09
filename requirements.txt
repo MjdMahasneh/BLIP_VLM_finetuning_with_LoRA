@@ -1,0 +1,7 @@
+transformers
+datasets
+peft
+accelerate
+pillow
+requests
+bitsandbytes
