@@ -160,6 +160,25 @@ By following this tutorial, you now have a fine-tuned BLIP model that can genera
 - **LoRA Rank & Alpha** – Modify **LoRA rank** and **alpha** to improve adaptation, as needed.
 - **Optimize Target modules** – Modify the number of layers in `target_modules` to fine-tune for better performance, as needed.
 
+## 🔥 Exploring Other Models Beyond BLIP  
+
+While this repo focuses on **fine-tuning BLIP** with LoRA, you can **extend the approach to other Vision-Language Models (VLMs)** with minimal modifications!  
+
+Here’s a quick comparison of models and their **best applications**:  
+
+| 🏆 Model | 🚀 Best For | 🎯 LoRA Target Layers |
+|----------|-----------------------------|-------------------------------------|
+| **BLIP-2** | General captioning & reasoning | `"q_proj", "k_proj"` |
+| **OFA** | Multi-modal tasks (captioning, VQA) | `"encoder.attn.q_proj", "encoder.attn.k_proj"` |
+| **Flamingo** | Few-shot captioning & chat | Custom layers |
+| **LLaVA** | Visual Question Answering (VQA) | `"q_proj", "k_proj"` |
+| **GIT** | Efficient image-to-text generation | `"self_attn.q_proj", "self_attn.k_proj"` |
+
+### ⚡ Adapting This Repo for Other Models  
+1️⃣ **Choose Your Model**: Replace `BlipForConditionalGeneration` with your desired model.  
+2️⃣ **Update the Processor**: Use the correct `AutoProcessor` for the selected model.  
+3️⃣ **Modify LoRA Target Layers**: Adjust `target_modules` based on the model architecture.  
+4️⃣ **Fine-Tune & Evaluate**: Run the same fine-tuning pipeline and test your results!  
 
 
 Hope this helps! Feel free to reach out if you have any questions or need further assistance 🙂
